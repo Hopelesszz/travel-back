@@ -22,7 +22,7 @@ const connection = async () => {
 }
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://travel-front-sable.vercel.app/",
   credentials: true               
 }));
 
@@ -50,7 +50,7 @@ app.use((err, req, res, next) => {
   });
 });     
 
-app.listen(8800, () => {
+app.listen(process.env.PORT || 8800, () => {
   connection();
   console.log('Server is running');
 })
