@@ -19,9 +19,12 @@ export const verifyUser = (req, res, next) => {
     if (req.user.id === req.params.id) {
       next();
     } 
-    if (req.user.id === req.params.userId) {
+    else if (req.user.id === req.params.userId) {
       next();
     } 
+    else if(req.user.id === req.params.authorId) {
+      next();
+    }
     else if(req.user.id === req.body.authorId) {
       next();
     }
