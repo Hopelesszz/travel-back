@@ -23,7 +23,7 @@ const connection = async () => {
 
 app.use(cors({
   origin: "https://travel-front-sable.vercel.app",
-  credentials: true               
+  credentials: true
 }));
 
 app.use(cookieParser());
