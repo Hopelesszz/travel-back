@@ -22,6 +22,9 @@ export const verifyUser = (req, res, next) => {
     else if(req.user.id === req.body.authorId) {
       next();
     }
+    else if(req.user.id === req.body.userId) {
+      next();
+    }
     else {
       return next(createError(403, "You are not authorized!"));
     }
