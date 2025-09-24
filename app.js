@@ -22,7 +22,7 @@ const connection = async () => {
 }
 
 app.use(cors({
-  origin: "https://travel-front-sable.vercel.app",
+  origin: ["http://localhost:5173", "https://travel-front-sable.vercel.app"],
   credentials: true
 }));
 
