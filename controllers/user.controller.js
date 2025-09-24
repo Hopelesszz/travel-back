@@ -44,6 +44,22 @@ export const updateUser = async (req,res,next)=>{
       );
       res.status(200).json(updatedUser);
     }
+    if(req.body.action === "add followers") {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        { $addToSet: { followers: req.body.followers } },
+        { new: true }
+      );  
+      res.status(200).json(updatedUser);
+    }
+    if(req.body.action === "add following") {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        { $addToSet: { following: req.body.following } },
+        { new: true }
+      );  
+      res.status(200).json(updatedUser);
+    }
     if(req.body.action === "delete award") {
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
