@@ -94,3 +94,16 @@ export const updateUser = async (req,res,next)=>{
     next(err);
   }
 }
+export const searchUsers = async (req, res) => {
+  try {
+    const { query } = req.query; 
+
+    const users = await User.find({
+      username: { $regex: query, $options: "i" } 
+    }); 
+
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
