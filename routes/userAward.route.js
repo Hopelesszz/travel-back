@@ -4,10 +4,10 @@ import { verifyUser } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
-router.get('/getAllAwards', getUserAwards);
-router.get('/getOneAward/:id', getOneUserAward);
-router.delete('/deleteAward/:id', verifyUser, deleteUserAward);
-router.put('/updateAward/:id', verifyUser, updateUserAward);
-router.post('/addAward', verifyUser, addUserAward);
+router.get('/getAllUserAwards', getUserAwards);
+router.get('/getOneUserAward/:id', getOneUserAward);
+router.delete('/deleteUserAward/:id', verifyUser, deleteUserAward);
+router.put('/updateUserAward/:id', verifyUser, updateUserAward);
+router.post('/addUserAward', verifyUser, addUserAward);
 
 export default router;
