@@ -1,4 +1,4 @@
-import UserAward from "../models/UserAward";
+import UserAward from "../models/UserAward.js";
 
 export const getUserAwards = async (req,res,next) => {
     try {
