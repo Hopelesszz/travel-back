@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 
 const UserAwardSchema = new mongoose.Schema({
-    userId: [{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
-    }],
-    achievementId: [{
+    },
+    achievementId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Award"
-    }],
+    },
     progress: {
         type: Number,
         required: true

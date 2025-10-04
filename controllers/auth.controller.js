@@ -45,8 +45,8 @@ export const login = async (req, res, next) => {
         const { password, isAdmin, ...otherDetails } = user._doc;
         res.cookie("access_token", token, {
             httpOnly: true,
-            sameSite: "none", 
-            secure: true,
+            secure: false, 
+            sameSite: "strict",
             maxAge: 7 * 24 * 60 * 60 * 1000
           })
           .status(200)
@@ -58,8 +58,8 @@ export const login = async (req, res, next) => {
 export const logout = (req, res, next) => {
   res.clearCookie("access_token", {
     httpOnly: true,
-    sameSite: "none", 
-    secure: true 
+    secure: false, 
+    sameSite: "strict",
   })
   .status(200).json({ message: "User has been logged out" });
 }

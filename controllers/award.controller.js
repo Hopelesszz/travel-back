@@ -16,14 +16,6 @@ export const getOneAward = async (req,res,next) => {
         next(err);
     }
 }
-export const getAwardsByUser = async (req,res,next) => {
-    try {
-        const award = await Award.find({ userId: req.params.userId })
-        res.status(200).json(award);
-    } catch (err) {
-        next(err);
-    }
-}
 export const addAward = async (req,res,next) => {
     try {
         const newAward = new Award(req.body);
