@@ -24,6 +24,15 @@ export const getUserAwardsByUser = async (req,res,next) => {
         next(err);
     }
 }
+export const getUserAwardsByUserAndAward = async (req, res, next) => {
+  try {
+    const { userId, awardId } = req.query;
+    const userAward = await UserAward.findOne({ userId, achievementId: awardId });
+    res.status(200).json(userAward);
+  } catch (err) {
+    next(err);
+  }
+};
 export const addUserAward = async (req,res,next) => {
     try {
         const newUserAward = new UserAward(req.body);
