@@ -44,13 +44,10 @@ export const login = async (req, res, next) => {
     
         const { password, isAdmin, ...otherDetails } = user._doc;
         res.cookie("access_token", token, {
-            httpOnly: true,
-            secure: false, 
-            sameSite: "strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000
-          })
-          .status(200)
-          .json({ details: { ...otherDetails }, isAdmin });
+          httpOnly: true,
+          secure: true, 
+          sameSite: "none", 
+        }).status(200).json({ details: otherUserData });
     } catch (err) {
       next(err);
     }
