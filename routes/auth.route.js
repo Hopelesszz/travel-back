@@ -8,13 +8,16 @@ const router = express.Router();
 router.post('/register', register);
 router.post('/login', login);
 router.post('/logout/:id', logout);
-router.get('/checkToken',  (req, res) => {
+router.get("/checkToken", (req, res) => {
     const token = req.cookies.access_token;
     if (!token) {
         return res.json({ status: false });
-    } 
-    else {
-        return res.json({ status: true });
+    }
+    try {
+        const decoded = jwt.verify(token, process.env.JWT);
+        return res.json({ status: true, userId: decoded.id });
+    } catch (err) {
+        return res.json({ status: false });
     }
 });
 
