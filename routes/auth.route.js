@@ -14,8 +14,7 @@ router.get("/checkToken", (req, res) => {
         return res.json({ status: false });
     }
     try {
-        const decoded = jwt.verify(token, process.env.JWT);
-        return res.json({ status: true, userId: decoded.id });
+        return res.json({ status: true });
     } catch (err) {
         return res.json({ status: false });
     }
